@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tictactoe.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <p class="main__text-p">Tic Tac Toe</p>
+        <div class="main__button-wrapper">
+            <h2 id="player">Player</h2>
+            <button class="main__button" onclick="window.location.reload();">New game</button>
+        </div>
+        <div class="main__container-wrapper">
+            <div class="main__tic-tac-toe" onclick="showX('one_one'); this.onclick=null;" id="one_one"></div>
+            <div class="main__tic-tac-toe" onclick="showX('one_two'); this.onclick=null;" id="one_two"></div>
+            <div class="main__tic-tac-toe" onclick="showX('one_three'); this.onclick=null;" id="one_three"></div>
+            <div class="main__tic-tac-toe" onclick="showX('two_one'); this.onclick=null;" id="two_one"></div>
+            <div class="main__tic-tac-toe" onclick="showX('two_two'); this.onclick=null;" id="two_two"></div>
+            <div class="main__tic-tac-toe" onclick="showX('two_three'); this.onclick=null;" id="two_three"></div>
+            <div class="main__tic-tac-toe" onclick="showX('three_one'); this.onclick=null;" id="three_one"></div>
+            <div class="main__tic-tac-toe" onclick="showX('three_two'); this.onclick=null;" id="three_two"></div>
+            <div class="main__tic-tac-toe" onclick="showX('three_three'); this.onclick=null;" id="three_three"></div>
+        </div>
+        <script>
+            var counter = 0;
+            var turn = "X"
+
+            function showX(id) {
+                counter++;
+                if (turn == "X") {
+                    document.getElementById(id).innerHTML = turn;
+                    turn = "O";
+                    var y = checkWin();
+                } else {
+                    document.getElementById(id).innerHTML = turn;
+                    turn = "X";
+                    // var x = Playerwon();
+                }
+                if (counter == 9 && y != true && x != true) {
+                    Playerwon();
+                    document.getElementById("player").innerText = 'DRAW!';
+                }
+            }
+
+            // als het bord vol is, dus 9 vakken gevuld, en niemand wint dan gelijkspel!
+
+
+
+            function checkWin() {
+                if (
+                    ((document.getElementById("one_one").innerHTML == 'X') && (document.getElementById("one_two").innerHTML == 'X') && (document.getElementById("one_three").innerHTML == 'X')) ||
+                    ((document.getElementById("two_one").innerHTML == 'X') && (document.getElementById("two_two").innerHTML == 'X') && (document.getElementById("two_three").innerHTML == 'X')) ||
+                    ((document.getElementById("three_one").innerHTML == 'X') && (document.getElementById("three_two").innerHTML == 'X') && (document.getElementById("three_three").innerHTML == 'X')) ||
+                    ((document.getElementById("one_one").innerHTML == 'X') && (document.getElementById("two_one").innerHTML == 'X') && (document.getElementById("three_one").innerHTML == 'X')) ||
+                    ((document.getElementById("one_two").innerHTML == 'X') && (document.getElementById("two_two").innerHTML == 'X') && (document.getElementById("three_two").innerHTML == 'X')) ||
+                    ((document.getElementById("one_three").innerHTML == 'X') && (document.getElementById("two_three").innerHTML == 'X') && (document.getElementById("three_three").innerHTML == 'X')) ||
+                    ((document.getElementById("one_one").innerHTML == 'X') && (document.getElementById("two_two").innerHTML == 'X') && (document.getElementById("three_three").innerHTML == 'X')) ||
+                    ((document.getElementById("three_one").innerHTML == 'X') && (document.getElementById("two_two").innerHTML == 'X') && (document.getElementById("one_three").innerHTML == 'X'))
+                ) {
+                    document.getElementById("player").innerText = 'Player X Wins';
+                    return true;
+                }
+                return false;
+            }
+
+
+            function Playerwon() {
+                if (
+                    ((document.getElementById("one_one").innerHTML == 'O') && (document.getElementById("one_two").innerHTML == 'O') && (document.getElementById("one_three").innerHTML == 'O')) ||
+                    ((document.getElementById("two_one").innerHTML == 'O') && (document.getElementById("two_two").innerHTML == 'O') && (document.getElementById("two_three").innerHTML == 'O')) ||
+                    ((document.getElementById("three_one").innerHTML == 'O') && (document.getElementById("three_two").innerHTML == 'O') && (document.getElementById("three_three").innerHTML == 'O')) ||
+                    ((document.getElementById("one_one").innerHTML == 'O') && (document.getElementById("two_one").innerHTML == 'O') && (document.getElementById("three_one").innerHTML == 'O')) ||
+                    ((document.getElementById("one_two").innerHTML == 'O') && (document.getElementById("two_two").innerHTML == 'O') && (document.getElementById("three_two").innerHTML == 'O')) ||
+                    ((document.getElementById("one_three").innerHTML == 'O') && (document.getElementById("two_three").innerHTML == 'O') && (document.getElementById("three_three").innerHTML == 'O')) ||
+                    ((document.getElementById("one_one").innerHTML == 'O') && (document.getElementById("two_two").innerHTML == 'O') && (document.getElementById("three_three").innerHTML == 'O'))
+                    ((document.getElementById("three_one").innerHTML == 'O') && (document.getElementById("two_two").innerHTML == 'O') && (document.getElementById("one_three").innerHTML == 'O'))
+                ) {
+                    document.getElementById("player").innerText = 'Player O Wins';
+                    return true;
+                }
+                return false;
+            }
+        </script>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+.main__text-p {
+    text-align: center;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px 2px #000;
+    color: #000;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.main__button-wrapper {
+    display: block;
+    font-size: 20px;
+    color: #000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.main__button {
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background-color: darkgreen;
+}
+
+.main__container-wrapper {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    width: 606px;
+    height: 606px;
+    margin: 0 auto;
+    margin-top: 60px;
+    border-radius: 50px;
+}
+
+.main__tic-tac-toe {
+    height: 200px;
+    width: 200px;
+    border: 1px solid #fff;
+    background-color: rgb(32, 36, 26);
+    font-size: 100px;
+    font-family: 'Kaushan Script', cursive;
+    color: #fff;
+    text-align: center;
+    line-height: 175px;
+    border-radius: 50px;
+}
